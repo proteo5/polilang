@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html>
+<header>
+    <meta charset="utf-8">
+    <title>PoliLang</title>
+</header>
+<body>
+    <div id="generalContainer">
+        <h1 id="header">Login</h1>
+        <br /><br />
+        <a id="lnkLocalization" href="#_">en-US</a>
+        <br /><br /><br /><br /><br /><br />
+        <span id="lblUser">User</span><br />
+        <input type="text" id="textUser" /><br /><br />
+        <span id="lblPass">Password</span><br />
+        <input type="text" id="textPass" /><br /><br />
+        <button id="buttonComand">ok</button><br />
+        <p id="message"> This is a general message</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script src="locache.min.js"></script>
+    <script src="polilang.js"></script>
+    <script>
+        $( document ).ready(function() {
+            polilang.init(['en-US','es-MX'],'es-MX','1.0',resources);
+        });
+
+        $( "#lnkLocalization" ).click(function(e) {
+            e.preventDefault();
+            var setLanguage = polilang.get() == "en-US" ? "es-MX" : "en-US";
+            polilang.set(setLanguage);
+        });
+
+        var resources= {
+            header: {
+                "en-US": "Home",
+                "es-MX": "Inicio"
+            },
+            lnkLocalization: {
+                "en-US": "Change to: Spanish (es-MX)",
+                "es-MX": "Cambiar a: Ingles (en-US)"
+            },
+            lblUser: {
+                "en-US": "User",
+                "es-MX": "Usuario"
+            },
+            lblPass: {
+                "en-US": "Password",
+                "es-MX": "Contraseña"
+            },
+            buttonComand: {
+                "en-US": "Login",
+                "es-MX": "Iniciar Sesion"
+            },
+            message: {
+                "en-US": "This is a general messages",
+                "es-MX": "Este es un mensaje general"
+            }
+        }
+    </script>
+</body>
+</html>
